@@ -2,10 +2,10 @@ module.exports = {
     presets: ['babel-preset-expo'],
     env: {
         production: {
-            plugins: ['transform-remove-console'],
+            plugins: [
+                'transform-remove-console', 
+                'react-native-reanimated/plugin'
+            ],
         },
-    },
-    plugins: [
-        'react-native-reanimated/plugin',
-    ],
+    }
 };

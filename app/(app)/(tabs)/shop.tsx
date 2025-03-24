@@ -114,7 +114,6 @@ export default function ShopScreen() {
                 Alert.alert("Error getting offers", e.message);
             }
         };
-
         getPackages();
     }, []);
 
@@ -400,7 +399,7 @@ export default function ShopScreen() {
                                         { marginVertical: 4 },
                                     ]}
                                 >
-                                    {option.identifier} Coins
+                                    {option.identifier}
                                 </Text>
                                 <View style={styles.productPrice}>
                                     <Text style={[styles.priceText]}>

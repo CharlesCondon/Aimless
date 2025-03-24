@@ -51,24 +51,22 @@ export default function RootLayout() {
         return <Redirect href="/create-profile" />;
     }
 
-    useEffect(() => {
-        AppStartupManager.init().catch(console.error);
-    }, []);
+    // useEffect(() => {
+    //     AppStartupManager.init().catch(console.error);
+    // }, []);
 
     useEffect(() => {
-        AppStartupManager.runWhenReady(() => {
-            try {
-                Purchases.setLogLevel(Purchases.LOG_LEVEL.ERROR);
-                Purchases.configure({
-                    apiKey: process.env.EXPO_PUBLIC_REVCAT_KEY || "",
-                    appUserID: null,
-                    useAmazon: false,
-                });
-                console.log("purchases configure success");
-            } catch (error) {
-                console.log("RevenueCat initialization error:", error);
-            }
-        });
+        try {
+            Purchases.setLogLevel(Purchases.LOG_LEVEL.ERROR);
+            Purchases.configure({
+                apiKey: process.env.EXPO_PUBLIC_REVCAT_KEY || "",
+                appUserID: null,
+                useAmazon: false,
+            });
+            console.log("purchases configure success");
+        } catch (error) {
+            console.log("RevenueCat initialization error:", error);
+        }
     }, []);
 
     if (isLoading || loading) {
